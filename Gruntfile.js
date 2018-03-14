@@ -46,12 +46,6 @@ module.exports = function(grunt) {
       "\n * build: <%= new Date() %>\n */\n\n";
 
   //init
-  (function() {
-    server = typeof server === "string" ? server.toLowerCase() : "php";
-    encode = typeof encode === "string" ? encode.toLowerCase() : "utf8";
-
-    disDir = "dist/" + encode + "-" + server + "/";
-  })();
 
   grunt.initConfig({
     pkg: packageJson,
@@ -72,7 +66,7 @@ module.exports = function(grunt) {
             );
           }
         },
-        src: Util.fetchScripts("_examples/editor_api.js", Util.jsBasePath),
+        src: Util.fetchScripts("editor_api.js", Util.jsBasePath),
         dest: disDir + packageJson.name + ".all.js"
       },
       parse: {
@@ -149,7 +143,7 @@ module.exports = function(grunt) {
       demo: {
         files: [
           {
-            src: "_examples/completeDemo.html",
+            src: "index.html",
             dest: disDir + "index.html"
           }
         ]
@@ -157,21 +151,6 @@ module.exports = function(grunt) {
       php: {
         expand: true,
         src: "php/**",
-        dest: disDir
-      },
-      asp: {
-        expand: true,
-        src: "asp/**",
-        dest: disDir
-      },
-      jsp: {
-        expand: true,
-        src: "jsp/**",
-        dest: disDir
-      },
-      net: {
-        expand: true,
-        src: "net/**",
         dest: disDir
       }
     },
@@ -183,30 +162,10 @@ module.exports = function(grunt) {
         disDir + "**/*.html",
         disDir + "**/*.js",
         disDir + "**/*.css",
-        disDir + "**/*.json",
-        disDir + "**/*.jsp",
-        disDir + "**/*.asp"
+        disDir + "**/*.json"
       ]
     },
     replace: {
-      fileEncode: {
-        src: [
-          disDir + "**/*.html",
-          disDir + "dialogs/**/*.js",
-          disDir + "**/*.css",
-          disDir + "**/*.php",
-          disDir + "**/*.jsp",
-          disDir + "**/*.ashx",
-          disDir + "**/*.asp"
-        ],
-        overwrite: true,
-        replacements: [
-          {
-            from: /utf-8/gi,
-            to: "gbk"
-          }
-        ]
-      },
       demo: {
         src: disDir + "index.html",
         overwrite: true,
@@ -220,22 +179,11 @@ module.exports = function(grunt) {
             to: packageJson.name + ".all.min.js"
           }
         ]
-      },
-      gbkasp: {
-        src: [disDir + "asp/*.asp"],
-        overwrite: true,
-        replacements: [
-          {
-            from: /65001/gi,
-            to: "936"
-          }
-        ]
       }
     },
     clean: {
       build: {
         src: [
-          disDir + "jsp/src",
           disDir + "*/upload",
           disDir + ".DS_Store",
           disDir + "**/.DS_Store",
@@ -266,13 +214,6 @@ module.exports = function(grunt) {
       "clean"
     ];
 
-    if (encode === "gbk") {
-      tasks.push("replace:fileEncode");
-      if (server === "asp") {
-        tasks.push("replace:gbkasp");
-      }
-    }
-
     tasks.push("transcoding");
 
     //config修改
@@ -285,13 +226,9 @@ module.exports = function(grunt) {
     var filename = "ueditor.config.js",
       file = grunt.file.read(filename),
       path = server + "/",
-      suffix = server === "net" ? ".ashx" : "." + server;
+      suffix = "." + server;
 
     file = file.replace(/php\//ig, path).replace(/\.php/ig, suffix);
-
-    if (encode == "gbk") {
-      file = file.replace(/utf-8/gi, "gbk");
-    }
 
     //写入到dist
     if (grunt.file.write(disDir + filename, file)) {
