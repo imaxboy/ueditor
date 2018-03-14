@@ -100,7 +100,7 @@
     //,autoClearEmptyNode : true //getContent时，是否删除空的inlineElement节点（包括嵌套的情况）
 
     //启用自动保存
-    //,enableAutoSave: true
+    ,enableAutoSave: false
     //自动保存间隔时间， 单位ms
     //,saveInterval: 500
 
@@ -189,17 +189,17 @@
     //fontfamily
     //字体设置 label留空支持多语言自动切换，若配置，则以配置值为准
     //,'fontfamily':[
-    //    { label:'',name:'songti',val:'宋体,SimSun'},
-    //    { label:'',name:'kaiti',val:'楷体,楷体_GB2312, SimKai'},
-    //    { label:'',name:'yahei',val:'微软雅黑,Microsoft YaHei'},
-    //    { label:'',name:'heiti',val:'黑体, SimHei'},
-    //    { label:'',name:'lishu',val:'隶书, SimLi'},
-    //    { label:'',name:'andaleMono',val:'andale mono'},
-    //    { label:'',name:'arial',val:'arial, helvetica,sans-serif'},
-    //    { label:'',name:'arialBlack',val:'arial black,avant garde'},
-    //    { label:'',name:'comicSansMs',val:'comic sans ms'},
-    //    { label:'',name:'impact',val:'impact,chicago'},
-    //    { label:'',name:'timesNewRoman',val:'times new roman'}
+      //  { label:'',name:'songti',val:'宋体,SimSun'},
+      //  { label:'',name:'kaiti',val:'楷体,楷体_GB2312, SimKai'},
+      //  { label:'',name:'yahei',val:'微软雅黑,Microsoft YaHei'},
+      //  { label:'',name:'heiti',val:'黑体, SimHei'},
+      //  { label:'',name:'lishu',val:'隶书, SimLi'},
+      //  { label:'',name:'andaleMono',val:'andale mono'},
+      //  { label:'',name:'arial',val:'arial, helvetica,sans-serif'},
+      //  { label:'',name:'arialBlack',val:'arial black,avant garde'},
+      //  { label:'',name:'comicSansMs',val:'comic sans ms'},
+      //  { label:'',name:'impact',val:'impact,chicago'},
+      //  { label:'',name:'timesNewRoman',val:'times new roman'}
     //]
 
     //fontsize
@@ -258,10 +258,10 @@
 
     //elementPathEnabled
     //是否启用元素路径，默认是显示
-    //,elementPathEnabled : true
+    ,elementPathEnabled : false
 
     //wordCount
-    //,wordCount:true          //是否开启字数统计
+    ,wordCount:false          //是否开启字数统计
     //,maximumWords:10000       //允许的最大字符数
     //字数统计提示，{#count}代表当前字数，{#leave}代表还可以输入多少字符数,留空支持多语言自动切换，否则按此配置显示
     //,wordCountMsg:''   //当前已输入 {#count} 个字符，您还可以输入{#leave} 个字符
@@ -292,7 +292,7 @@
 
     //scaleEnabled
     //是否可以拉伸长高,默认true(当开启时，自动长高失效)
-    //,scaleEnabled:false
+    // ,scaleEnabled:true
     //,minFrameWidth:800    //编辑器拖动时最小宽度,默认800
     //,minFrameHeight:220  //编辑器拖动时最小高度,默认220
 

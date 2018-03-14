@@ -34,7 +34,7 @@ div.edui-box {
     position: relative;
     display: -moz-inline-box !important;
     display: inline-block !important;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 .edui-default .edui-clearfix {
@@ -58,6 +58,7 @@ div.edui-box {
 /* control layout */
 .edui-default .edui-button-body, .edui-splitbutton-body, .edui-menubutton-body, .edui-combox-body {
     position: relative;
+    font-size: 0;
 }
 
 .edui-default .edui-popup {
@@ -74,6 +75,7 @@ div.edui-box {
 .edui-default .edui-popup .edui-bordereraser {
     position: absolute;
     overflow: hidden;
+    display: none;
 }
 
 .edui-default .edui-tablepicker .edui-canvas {
@@ -112,4 +114,7 @@ div.edui-box {
 .edui-default span.edui-unclickable {
     color: gray;
     cursor: default;
+}
+.edui-icon i {
+    color: #646465;
 }

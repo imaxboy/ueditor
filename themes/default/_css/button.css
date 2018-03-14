@@ -2,24 +2,30 @@
 .edui-default .edui-toolbar .edui-button .edui-icon,
 .edui-default .edui-toolbar .edui-menubutton .edui-icon,
 .edui-default .edui-toolbar .edui-splitbutton .edui-icon {
-    height: 20px !important;
-    width: 20px !important;
-    background-image: url(../images/icons.png);
-    background-image: url(../images/icons.gif) \9;
+    padding: 2px;
 }
 
 .edui-default .edui-toolbar .edui-button .edui-button-wrap {
-    padding: 1px;
     position: relative;
 }
 
-.edui-default .edui-toolbar .edui-button .edui-state-hover .edui-button-wrap {
-    background-color: #fff5d4;
-    padding: 0;
-    border: 1px solid #dcac6c;
+.edui-button .edui-state-hover .edui-button-wrap,
+.edui-button .edui-state-checked .edui-button-wrap,
+.edui-button .edui-state-active .edui-button-wrap,
+.edui-splitbutton .edui-state-hover .edui-splitbutton-body,
+.edui-splitbutton .edui-state-checked .edui-splitbutton-body,
+.edui-splitbutton .edui-state-active .edui-splitbutton-body,
+.edui-menubutton .edui-state-hover .edui-menubutton-body,
+.edui-menubutton .edui-state-checked .edui-menubutton-body,
+.edui-menubutton .edui-state-active .edui-menubutton-body,
+.edui-combox .edui-state-hover .edui-combox-body,
+.edui-combox .edui-state-opened .edui-combox-body,
+.edui-combox .edui-state-active .edui-combox-body {
+    border: 1px solid #e7e7eb;
+    background-color: #fff
 }
 
-.edui-default .edui-toolbar .edui-button .edui-state-checked .edui-button-wrap {
+/* .edui-default .edui-toolbar .edui-button .edui-state-checked .edui-button-wrap {
     background-color: #ffe69f;
     padding: 0;
     border: 1px solid #dcac6c;
@@ -32,7 +38,7 @@
     background-color: #ffffff;
     padding: 0;
     border: 1px solid gray;
-}
+} */
 .edui-default .edui-toolbar .edui-state-disabled .edui-label {
     color: #ccc;
 }

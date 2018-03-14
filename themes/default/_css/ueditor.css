@@ -22,8 +22,6 @@
 /*-------按钮类型，按需加载-------*/
     /*普通按钮*/
 @import "button.css";
-    /*按钮icon*/
-@import "buttonicon.css";
     /*弹出菜单按钮-附加按钮*/
 @import "splitbutton.css";
     /*弹出菜单*/
