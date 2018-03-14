@@ -26,13 +26,11 @@
             'plugins/inserthtml.js',
             'plugins/autotypeset.js',
             'plugins/autosubmit.js',
-            'plugins/background.js',
             'plugins/image.js',
             'plugins/justify.js',
             'plugins/font.js',
             'plugins/link.js',
             'plugins/iframe.js',
-            'plugins/scrawl.js',
             'plugins/removeformat.js',
             'plugins/blockquote.js',
             'plugins/convertcase.js',
@@ -43,15 +41,12 @@
             'plugins/paragraph.js',
             'plugins/directionality.js',
             'plugins/horizontal.js',
-            'plugins/time.js',
             'plugins/rowspacing.js',
             'plugins/lineheight.js',
             'plugins/insertcode.js',
-            'plugins/cleardoc.js',
             'plugins/anchor.js',
             'plugins/wordcount.js',
             'plugins/pagebreak.js',
-            'plugins/wordimage.js',
             'plugins/dragdrop.js',
             'plugins/undo.js',
             'plugins/copy.js',
@@ -75,17 +70,11 @@
             'plugins/basestyle.js',
             'plugins/elementpath.js',
             'plugins/formatmatch.js',
-            'plugins/searchreplace.js',
             'plugins/customstyle.js',
             'plugins/catchremoteimage.js',
-            'plugins/snapscreen.js',
             'plugins/insertparagraph.js',
-            'plugins/webapp.js',
-            'plugins/template.js',
-            'plugins/music.js',
             'plugins/autoupload.js',
             'plugins/autosave.js',
-            'plugins/charts.js',
             'plugins/section.js',
             'plugins/simpleupload.js',
             'plugins/serverparam.js',
@@ -121,9 +110,5 @@
             'adapter/message.js',
             'adapter/autosave.js'
 
-        ],
-        baseURL = '../_src/';
-    for (var i=0,pi;pi = paths[i++];) {
-        document.write('<script type="text/javascript" src="'+ baseURL + pi +'"></script>');
-    }
+        ]
 })();
