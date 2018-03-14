@@ -28,6 +28,7 @@
     uiName: "button",
     label: "",
     title: "",
+    icon: '',
     showIcon: true,
     showText: true,
     cssRules: "",
@@ -45,7 +46,7 @@
         '<div class="%%-wrap"><div id="##_body" unselectable="on" ' +
         (this.title ? 'title="' + this.title + '"' : "") +
         ' class="%%-body" onmousedown="return $$._onMouseDown(event, this);" onclick="return $$._onClick(event, this);">' +
-        (this.showIcon ? '<div class="edui-box edui-icon"></div>' : "") +
+        (this.showIcon ? '<div class="edui-box edui-icon"><i class="iconfont '+ this.icon +'"></i></div>' : "") +
         (this.showText
           ? '<div class="edui-box edui-label">' + this.label + "</div>"
           : "") +

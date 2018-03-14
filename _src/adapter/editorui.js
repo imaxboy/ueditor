@@ -101,6 +101,7 @@
       return function(editor) {
         var ui = new editorui.Button({
           className: "edui-for-" + cmd,
+          icon: 'icon-' + cmd,
           title:
             editor.options.labelMap[cmd] ||
               editor.getLang("labelMap." + cmd) ||
@@ -169,6 +170,7 @@
           editorui[cmd.replace("float", "") + cmd2] = function(editor) {
             var ui = new editorui.Button({
               className: "edui-for-" + cmd.replace("float", "") + cmd2,
+              icon: 'icon-' + cmd.replace("float", "") + cmd2,
               title:
                 editor.options.labelMap[cmd.replace("float", "") + cmd2] ||
                   editor.getLang(
@@ -202,6 +204,7 @@
       return function(editor) {
         var ui = new editorui.ColorButton({
           className: "edui-for-" + cmd,
+          icon: 'icon-' + cmd,
           color: "default",
           title:
             editor.options.labelMap[cmd] ||
@@ -315,6 +318,7 @@
 
             var ui = new editorui.Button({
               className: "edui-for-" + cmd,
+              icon:'icon-' + cmd,
               title: title,
               onclick: function() {
                 if (dialog) {
@@ -747,6 +751,7 @@
       editor: editor,
       title: title,
       className: "edui-for-inserttable",
+      icon: 'icon-inserttable',
       onpicktable: function(t, numCols, numRows) {
         editor.execCommand("InsertTable", {
           numRows: numRows,
@@ -782,6 +787,7 @@
     var ui = new editorui.MenuButton({
       editor: editor,
       className: "edui-for-lineheight",
+      icon: 'icon-lineheight',
       title:
         editor.options.labelMap["lineheight"] ||
           editor.getLang("labelMap.lineheight") ||
@@ -874,6 +880,7 @@
         var ui = new editorui.MenuButton({
           editor: editor,
           className: "edui-for-" + cmd,
+          icon: 'icon-' + cmd,
           title: editor.getLang("labelMap." + cmd) || "",
           items: items,
           onbuttonclick: function() {
@@ -905,6 +912,7 @@
       "";
     var ui = new editorui.Button({
       className: "edui-for-fullscreen",
+      icon: 'icon-fullscreen',
       title: title,
       theme: editor.options.theme,
       onclick: function() {
@@ -971,6 +979,7 @@
     var name = "simpleupload",
       ui = new editorui.Button({
         className: "edui-for-" + name,
+        icon:'icon-' + name,
         title:
           editor.options.labelMap[name] ||
             editor.getLang("labelMap." + name) ||
