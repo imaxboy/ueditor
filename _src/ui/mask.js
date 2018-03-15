@@ -19,13 +19,13 @@
       domUtils.on(window, "resize", function() {
         setTimeout(function() {
           if (!me.isHidden()) {
-            me._fill();
+            // me._fill();
           }
         });
       });
     },
     show: function(zIndex) {
-      this._fill();
+      // this._fill();
       this.getDom().style.display = "";
       this.getDom().style.zIndex = zIndex;
     },

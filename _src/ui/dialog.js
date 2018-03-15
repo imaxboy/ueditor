@@ -71,6 +71,7 @@
       this.closeButton = new Button({
         className: "edui-dialog-closebutton",
         title: me.closeDialog,
+        icon: 'icon-close',
         theme: theme,
         onclick: function() {
           me.close(false);
@@ -130,10 +131,6 @@
     },
     fitSize: function() {
       var popBodyEl = this.getDom("body");
-      //            if (!(baidu.editor.browser.ie && baidu.editor.browser.version == 7)) {
-      //                uiUtils.removeStyle(popBodyEl, 'width');
-      //                uiUtils.removeStyle(popBodyEl, 'height');
-      //            }
       var size = this.mesureSize();
       popBodyEl.style.width = size.width + "px";
       popBodyEl.style.height = size.height + "px";
@@ -245,12 +242,11 @@
       }
 
       return (
-        '<div id="##" class="%%"><div ' +
+        '<div id="##" class="dialog-wrap %%"><div ' +
         (!this.fullscreen
-          ? 'class="%%"'
+          ? 'class="dialog %%"'
           : 'class="%%-wrap edui-dialog-fullscreen-flag"') +
         '><div id="##_body" class="%%-body">' +
-        '<div class="%%-shadow"></div>' +
         '<div id="##_titlebar" class="%%-titlebar">' +
         '<div class="%%-draghandle" onmousedown="$$._onTitlebarMouseDown(event, this);">' +
         '<span class="%%-caption">' +
@@ -296,43 +292,6 @@
         });
       });
 
-      //hold住scroll事件，防止dialog的滚动影响页面
-      //            if( this.holdScroll ) {
-      //
-      //                if( !me.iframeUrl ) {
-      //                    domUtils.on( document.getElementById( me.id + "_iframe"), !browser.gecko ? "mousewheel" : "DOMMouseScroll", function(e){
-      //                        domUtils.preventDefault(e);
-      //                    } );
-      //                } else {
-      //                    me.addListener('dialogafterreset', function(){
-      //                        window.setTimeout(function(){
-      //                            var iframeWindow = document.getElementById( me.id + "_iframe").contentWindow;
-      //
-      //                            if( browser.ie ) {
-      //
-      //                                var timer = window.setInterval(function(){
-      //
-      //                                    if( iframeWindow.document && iframeWindow.document.body ) {
-      //                                        window.clearInterval( timer );
-      //                                        timer = null;
-      //                                        domUtils.on( iframeWindow.document.body, !browser.gecko ? "mousewheel" : "DOMMouseScroll", function(e){
-      //                                            domUtils.preventDefault(e);
-      //                                        } );
-      //                                    }
-      //
-      //                                }, 100);
-      //
-      //                            } else {
-      //                                domUtils.on( iframeWindow, !browser.gecko ? "mousewheel" : "DOMMouseScroll", function(e){
-      //                                    domUtils.preventDefault(e);
-      //                                } );
-      //                            }
-      //
-      //                        }, 1);
-      //                    });
-      //                }
-      //
-      //            }
       this._hide();
     },
     mesureSize: function() {
