@@ -247,19 +247,14 @@ UE.plugins["insertcode"] = function() {
   });
   //不需要判断highlight的command列表
   me.notNeedCodeQuery = {
-    help: 1,
     undo: 1,
     redo: 1,
     source: 1,
-    print: 1,
-    searchreplace: 1,
     fullscreen: 1,
-    preview: 1,
     insertparagraph: 1,
     elementpath: 1,
     insertcode: 1,
     inserthtml: 1,
-    selectall: 1
   };
   //将queyCommamndState重置
   var orgQuery = me.queryCommandState;

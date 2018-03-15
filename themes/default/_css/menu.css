@@ -13,9 +13,6 @@
     background: url("../images/sparator_v.png") repeat-y 25px;
 }
 
-.edui-default .edui-menuitem-body {
-}
-
 .edui-default .edui-menuitem {
     height: 20px;
     cursor: default;

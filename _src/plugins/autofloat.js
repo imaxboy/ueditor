@@ -19,9 +19,7 @@ UE.plugins["autofloat"] = function() {
   if (!optsAutoFloatEnabled) {
     return;
   }
-  var uiUtils = UE.ui.uiUtils,
-    LteIE6 = browser.ie && browser.version <= 6,
-    quirks = browser.quirks;
+  var uiUtils = UE.ui.uiUtils, quirks = browser.quirks;
 
   function checkHasUI() {
     if (!UE.ui) {
@@ -29,11 +27,6 @@ UE.plugins["autofloat"] = function() {
       return 0;
     }
     return 1;
-  }
-  function fixIE6FixedPos() {
-    var docStyle = document.body.style;
-    docStyle.backgroundImage = 'url("about:blank")';
-    docStyle.backgroundAttachment = "fixed";
   }
   var bakCssText,
     placeHolder = document.createElement("div"),
@@ -48,7 +41,7 @@ UE.plugins["autofloat"] = function() {
     toolbarBox.style.width = toolbarBox.offsetWidth + "px";
     toolbarBox.style.zIndex = me.options.zIndex * 1 + 1;
     toolbarBox.parentNode.insertBefore(placeHolder, toolbarBox);
-    if (LteIE6 || (quirks && browser.ie)) {
+    if (quirks && browser.ie) {
       if (toolbarBox.style.position != "absolute") {
         toolbarBox.style.position = "absolute";
       }
@@ -117,9 +110,7 @@ UE.plugins["autofloat"] = function() {
       orgTop = getPosition(toolbarBox).top;
       bakCssText = toolbarBox.style.cssText;
       placeHolder.style.height = toolbarBox.offsetHeight + "px";
-      if (LteIE6) {
-        fixIE6FixedPos();
-      }
+ 
       domUtils.on(window, ["scroll", "resize"], updateFloating);
       me.addListener("keydown", defer_updateFloating);
 

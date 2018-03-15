@@ -314,36 +314,5 @@
       }
       return oldQueryCommandState.apply(this, arguments);
     };
-
-    if (opt.sourceEditor == "codemirror") {
-      me.addListener("ready", function() {
-        utils.loadFile(
-          document,
-          {
-            src:
-              opt.codeMirrorJsUrl ||
-                opt.UEDITOR_HOME_URL + "third-party/codemirror/codemirror.js",
-            tag: "script",
-            type: "text/javascript",
-            defer: "defer"
-          },
-          function() {
-            if (opt.sourceEditorFirst) {
-              setTimeout(function() {
-                me.execCommand("source");
-              }, 0);
-            }
-          }
-        );
-        utils.loadFile(document, {
-          tag: "link",
-          rel: "stylesheet",
-          type: "text/css",
-          href:
-            opt.codeMirrorCssUrl ||
-              opt.UEDITOR_HOME_URL + "third-party/codemirror/codemirror.css"
-        });
-      });
-    }
   };
 })();

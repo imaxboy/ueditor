@@ -31,27 +31,14 @@
     anchor: "~/dialogs/anchor/anchor.html",
     insertimage: "~/dialogs/image/image.html",
     link: "~/dialogs/link/link.html",
-    spechars: "~/dialogs/spechars/spechars.html",
-    searchreplace: "~/dialogs/searchreplace/searchreplace.html",
     map: "~/dialogs/map/map.html",
     gmap: "~/dialogs/gmap/gmap.html",
     insertvideo: "~/dialogs/video/video.html",
-    help: "~/dialogs/help/help.html",
-    preview: "~/dialogs/preview/preview.html",
-    emotion: "~/dialogs/emotion/emotion.html",
-    wordimage: "~/dialogs/wordimage/wordimage.html",
     attachment: "~/dialogs/attachment/attachment.html",
     insertframe: "~/dialogs/insertframe/insertframe.html",
     edittip: "~/dialogs/table/edittip.html",
     edittable: "~/dialogs/table/edittable.html",
     edittd: "~/dialogs/table/edittd.html",
-    webapp: "~/dialogs/webapp/webapp.html",
-    snapscreen: "~/dialogs/snapscreen/snapscreen.html",
-    scrawl: "~/dialogs/scrawl/scrawl.html",
-    music: "~/dialogs/music/music.html",
-    template: "~/dialogs/template/template.html",
-    background: "~/dialogs/background/background.html",
-    charts: "~/dialogs/charts/charts.html"
   };
   //为工具栏添加按钮，以下都是统一的按钮触发命令，所以写在一起
   var btnCmds = [
@@ -61,24 +48,14 @@
     "bold",
     "italic",
     "underline",
-    "fontborder",
-    "touppercase",
-    "tolowercase",
     "strikethrough",
-    "subscript",
-    "superscript",
     "source",
     "indent",
     "outdent",
     "blockquote",
-    "pasteplain",
     "pagebreak",
-    "selectall",
-    "print",
     "horizontal",
     "removeformat",
-    "time",
-    "date",
     "unlink",
     "insertparagraphbeforetable",
     "insertrow",
@@ -133,28 +110,6 @@
       };
     })(ci);
   }
-
-  //清除文档
-  editorui.cleardoc = function(editor) {
-    var ui = new editorui.Button({
-      className: "edui-for-cleardoc",
-      title:
-        editor.options.labelMap.cleardoc ||
-          editor.getLang("labelMap.cleardoc") ||
-          "",
-      theme: editor.options.theme,
-      onclick: function() {
-        if (confirm(editor.getLang("confirmClear"))) {
-          editor.execCommand("cleardoc");
-        }
-      }
-    });
-    editorui.buttons["cleardoc"] = ui;
-    editor.addListener("selectionchange", function() {
-      ui.setDisabled(editor.queryCommandState("cleardoc") == -1);
-    });
-    return ui;
-  };
 
   //排版，图片排版，文字方向
   var typeset = {
@@ -233,7 +188,6 @@
   }
 
   var dialogBtns = {
-    noOk: ["searchreplace", "help", "spechars", "webapp", "preview"],
     ok: [
       "attachment",
       "anchor",
@@ -242,27 +196,17 @@
       "map",
       "gmap",
       "insertframe",
-      "wordimage",
       "insertvideo",
       "insertframe",
       "edittip",
       "edittable",
-      "edittd",
-      "scrawl",
-      "template",
-      "music",
-      "background",
-      "charts"
+      "edittd"
     ]
   };
 
   for (var p in dialogBtns) {
     (function(type, vals) {
       for (var i = 0, ci; (ci = vals[i++]); ) {
-        //todo opera下存在问题
-        if (browser.opera && ci === "searchreplace") {
-          continue;
-        }
         (function(cmd) {
           editorui[cmd] = function(editor, iframeUrl, title) {
             iframeUrl =
@@ -285,31 +229,28 @@
                     className: "edui-for-" + cmd,
                     title: title,
                     holdScroll: cmd === "insertimage",
-                    fullscreen: /charts|preview/.test(cmd),
                     closeDialog: editor.getLang("closeDialog")
                   },
-                  type == "ok"
-                    ? {
-                        buttons: [
-                          {
-                            className: "edui-okbutton",
-                            label: editor.getLang("ok"),
-                            editor: editor,
-                            onclick: function() {
-                              dialog.close(true);
-                            }
-                          },
-                          {
-                            className: "edui-cancelbutton",
-                            label: editor.getLang("cancel"),
-                            editor: editor,
-                            onclick: function() {
-                              dialog.close(false);
-                            }
-                          }
-                        ]
+                  {
+                    buttons: [
+                      {
+                        className: "edui-okbutton",
+                        label: editor.getLang("ok"),
+                        editor: editor,
+                        onclick: function() {
+                          dialog.close(true);
+                        }
+                      },
+                      {
+                        className: "edui-cancelbutton",
+                        label: editor.getLang("cancel"),
+                        editor: editor,
+                        onclick: function() {
+                          dialog.close(false);
+                        }
                       }
-                    : {}
+                    ]
+                  }
                 )
               );
 
@@ -322,31 +263,12 @@
               title: title,
               onclick: function() {
                 if (dialog) {
-                  switch (cmd) {
-                    case "wordimage":
-                      var images = editor.execCommand("wordimage");
-                      if (images && images.length) {
-                        dialog.render();
-                        dialog.open();
-                      }
-                      break;
-                    case "scrawl":
-                      if (editor.queryCommandState("scrawl") != -1) {
-                        dialog.render();
-                        dialog.open();
-                      }
-
-                      break;
-                    default:
-                      dialog.render();
-                      dialog.open();
-                  }
+                  dialog.render();
+                  dialog.open();
                 }
               },
               theme: editor.options.theme,
-              disabled:
-                (cmd == "scrawl" && editor.queryCommandState("scrawl") == -1) ||
-                  cmd == "charts"
+              disabled: false
             });
             editorui.buttons[cmd] = ui;
             editor.addListener("selectionchange", function() {
@@ -367,58 +289,6 @@
       }
     })(p, dialogBtns[p]);
   }
-
-  editorui.snapscreen = function(editor, iframeUrl, title) {
-    title =
-      editor.options.labelMap["snapscreen"] ||
-      editor.getLang("labelMap.snapscreen") ||
-      "";
-    var ui = new editorui.Button({
-      className: "edui-for-snapscreen",
-      title: title,
-      onclick: function() {
-        editor.execCommand("snapscreen");
-      },
-      theme: editor.options.theme
-    });
-    editorui.buttons["snapscreen"] = ui;
-    iframeUrl =
-      iframeUrl ||
-      (editor.options.iframeUrlMap || {})["snapscreen"] ||
-      iframeUrlMap["snapscreen"];
-    if (iframeUrl) {
-      var dialog = new editorui.Dialog({
-        iframeUrl: editor.ui.mapUrl(iframeUrl),
-        editor: editor,
-        className: "edui-for-snapscreen",
-        title: title,
-        buttons: [
-          {
-            className: "edui-okbutton",
-            label: editor.getLang("ok"),
-            editor: editor,
-            onclick: function() {
-              dialog.close(true);
-            }
-          },
-          {
-            className: "edui-cancelbutton",
-            label: editor.getLang("cancel"),
-            editor: editor,
-            onclick: function() {
-              dialog.close(false);
-            }
-          }
-        ]
-      });
-      dialog.render();
-      editor.ui._dialogs["snapscreenDialog"] = dialog;
-    }
-    editor.addListener("selectionchange", function() {
-      ui.setDisabled(editor.queryCommandState("snapscreen") == -1);
-    });
-    return ui;
-  };
 
   editorui.insertcode = function(editor, list, title) {
     list = editor.options["insertcode"] || [];
@@ -661,87 +531,6 @@
     return ui;
   };
 
-  //自定义标题
-  editorui.customstyle = function(editor) {
-    var list = editor.options["customstyle"] || [],
-      title =
-        editor.options.labelMap["customstyle"] ||
-        editor.getLang("labelMap.customstyle") ||
-        "";
-    if (!list.length) return;
-    var langCs = editor.getLang("customstyle");
-    for (var i = 0, items = [], t; (t = list[i++]); ) {
-      (function(t) {
-        var ck = {};
-        ck.label = t.label ? t.label : langCs[t.name];
-        ck.style = t.style;
-        ck.className = t.className;
-        ck.tag = t.tag;
-        items.push({
-          label: ck.label,
-          value: ck,
-          theme: editor.options.theme,
-          renderLabelHtml: function() {
-            return (
-              '<div class="edui-label %%-label">' +
-              "<" +
-              ck.tag +
-              " " +
-              (ck.className ? ' class="' + ck.className + '"' : "") +
-              (ck.style ? ' style="' + ck.style + '"' : "") +
-              ">" +
-              ck.label +
-              "</" +
-              ck.tag +
-              ">" +
-              "</div>"
-            );
-          }
-        });
-      })(t);
-    }
-
-    var ui = new editorui.Combox({
-      editor: editor,
-      items: items,
-      title: title,
-      initValue: title,
-      className: "edui-for-customstyle",
-      onselect: function(t, index) {
-        editor.execCommand("customstyle", this.items[index].value);
-      },
-      onbuttonclick: function() {
-        this.showPopup();
-      },
-      indexByValue: function(value) {
-        for (var i = 0, ti; (ti = this.items[i++]); ) {
-          if (ti.label == value) {
-            return i - 1;
-          }
-        }
-        return -1;
-      }
-    });
-    editorui.buttons["customstyle"] = ui;
-    editor.addListener("selectionchange", function(type, causeByUi, uiReady) {
-      if (!uiReady) {
-        var state = editor.queryCommandState("customstyle");
-        if (state == -1) {
-          ui.setDisabled(true);
-        } else {
-          ui.setDisabled(false);
-          var value = editor.queryCommandValue("customstyle");
-          var index = ui.indexByValue(value);
-          if (index != -1) {
-            ui.setValue(value);
-          } else {
-            ui.setValue(ui.initValue);
-          }
-        }
-      }
-    });
-    return ui;
-  };
   editorui.inserttable = function(editor, iframeUrl, title) {
     title =
       editor.options.labelMap["inserttable"] ||
@@ -927,30 +716,6 @@
       var state = editor.queryCommandState("fullscreen");
       ui.setDisabled(state == -1);
       ui.setChecked(editor.ui.isFullScreen());
-    });
-    return ui;
-  };
-
-  // 表情
-  editorui["emotion"] = function(editor, iframeUrl) {
-    var cmd = "emotion";
-    var ui = new editorui.MultiMenuPop({
-      title:
-        editor.options.labelMap[cmd] ||
-          editor.getLang("labelMap." + cmd + "") ||
-          "",
-      editor: editor,
-      className: "edui-for-" + cmd,
-      iframeUrl: editor.ui.mapUrl(
-        iframeUrl ||
-          (editor.options.iframeUrlMap || {})[cmd] ||
-          iframeUrlMap[cmd]
-      )
-    });
-    editorui.buttons[cmd] = ui;
-
-    editor.addListener("selectionchange", function() {
-      ui.setDisabled(editor.queryCommandState(cmd) == -1);
     });
     return ui;
   };
