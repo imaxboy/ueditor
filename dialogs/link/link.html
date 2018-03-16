@@ -5,36 +5,39 @@
     <title></title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <script type="text/javascript" src="../internal.js"></script>
-    <style type="text/css">
-        *{margin:0;padding:0;color: #838383;}
-        table{font-size: 12px;margin: 10px;line-height: 30px}
-        .txt{width:300px;height:21px;line-height:21px;border:1px solid #d7d7d7;}
-    </style>
 </head>
 <body>
-    <table>
-        <tr>
-            <td><label for="text"> <var id="lang_input_text"></var></label></td>
-            <td><input class="txt" id="text" type="text" disabled="true"/></td>
-        </tr>
-        <tr>
-            <td><label for="href"> <var id="lang_input_url"></var></label></td>
-            <td><input class="txt" id="href" type="text" /></td>
-        </tr>
-        <tr>
-            <td><label for="title"> <var id="lang_input_title"></var></label></td>
-            <td><input class="txt" id="title" type="text"/></td>
-        </tr>
-        <tr>
-             <td colspan="2">
-                 <label for="target"><var id="lang_input_target"></var></label>
-                 <input id="target" type="checkbox"/>
-             </td>
-        </tr>
-        <tr>
-            <td colspan="2" id="msg"></td>
-        </tr>
-    </table>
+    <div class="dialog-form-wrap">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label"><var id="lang_input_text"></var></label>
+                <div class="form-control-box">
+                    <input type="text" id="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label"><var id="lang_input_url"></label>
+                <div class="form-control-box">
+                    <input type="text" id="href" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label"><var id="lang_input_title"></label>
+                <div class="form-control-box">
+                    <input type="text" id="title" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                    <label class="control-label"><var id="lang_input_target"></label>
+                    <div class="form-control-box">
+                        <div class="checkbox">
+                            <input type="checkbox" id="target">
+                        </div>
+                    </div>
+            </div>
+            <div class="alert alert-danger hide" role="alert" id="msg"></div>
+        </form>
+    </div>
 <script type="text/javascript">
 
     editor.setOpt('allowLinkProtocols', ['http:', 'https:', '#', '/', 'ftp:', 'mailto:', 'tel:']);
@@ -73,7 +76,6 @@
     $G("title").value = url ? link.title : "";
     $G("href").value = url ? url: '';
     $G("target").checked = url && link.target == "_blank" ? true :  false;
-    $focus($G("href"));
 
     function handleDialogOk(){
         var href =$G('href').value.replace(/^\s+|\s+$/g, '');
@@ -108,11 +110,21 @@
             return false;
         }
     };
-    $G('href').onblur = function(){
-        if(!hrefStartWith(this.value, allowLinkProtocols)){
-            $G("msg").innerHTML = "<span style='color: red'>"+lang.httpPrompt+"</span>";
-        }else{
-            $G("msg").innerHTML = "";
+    $G('href').onblur = function() {
+        var errorMsg = '';
+
+        if (!this.value) {
+            errorMsg = lang.emptyLink
+        } else if (!hrefStartWith(this.value, allowLinkProtocols)) {
+            errorMsg = lang.httpPrompt
+        }
+
+        if (errorMsg) {
+            $G("msg").innerHTML = errorMsg;
+            $G("msg").style.display = 'block';
+        } else {
+            $G("msg").innerHTML = '';
+            $G("msg").style.display = 'none';
         }
     };
 

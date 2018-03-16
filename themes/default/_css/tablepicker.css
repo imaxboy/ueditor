@@ -22,7 +22,8 @@
 }
 
 .edui-default .edui-dialog-buttons .edui-label {
-    line-height: 24px;
+    line-height: 30px;
+    vertical-align: top;
 }
 
 .edui-default .edui-tablepicker .edui-infoarea .edui-clickable {

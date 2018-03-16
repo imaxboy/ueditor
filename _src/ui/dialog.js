@@ -261,7 +261,7 @@
         footHtml +
         "</div></div></div>"
       );
-    },
+    },    
     postRender: function() {
       // todo: 保持居中/记住上次关闭位置选项
       if (!this.modalMask.getDom()) {

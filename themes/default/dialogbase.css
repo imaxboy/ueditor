@@ -47,7 +47,7 @@ table {
 */
 body {
     background-color: #fff;
-    font: 12px/1.5 sans-serif, "宋体", "Arial Narrow", HELVETICA;
+    font: 14px/1.6 sans-serif, "宋体", "Arial Narrow", HELVETICA;
     color: #646464;
 }
 
@@ -97,4 +97,87 @@ a.button {
 
 a.button:hover {
     background-position: 0 -30px;
+}
+
+/* Bootstrap style */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #e7e7eb;
+    border-radius: 4px;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+         -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group:after, .form-group:before {
+    display: table;
+    content: " ";
+}
+.form-group:after {
+    clear: both;
+}
+.control-label {
+    width: 22%;
+    position: relative;
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
+    float: left;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 14px;
+}
+.form-control-box {
+    width: 78%;
+    float: left;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.dialog-form-wrap {
+    padding: 20px 30px;
+}
+.form-horizontal .checkbox {
+    padding-top: 10px;
+}
+.alert {
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+       transition: all .2s ease-in-out;
+}
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.hide {
+    display: none;
+}
+.form-control[disabled],
+.form-control[readonly] {
+  background-color: #eee;
+  opacity: 1;
 }

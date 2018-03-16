@@ -102,12 +102,11 @@
 }
 
 .edui-default .edui-dialog-foot {
-    height: 40px;
+    padding: 5px 0 20px;
 }
 
 .edui-default .edui-dialog-buttons {
-    position: absolute;
-    right: 0;
+    text-align: center;
 }
 
 .edui-default .edui-dialog-buttons .edui-button {
@@ -115,17 +114,36 @@
 }
 
 .edui-default .edui-dialog-buttons .edui-button .edui-button-body {
-    background: url("../images/icons-all.gif") no-repeat;
-    height: 24px;
+    height: 30px;
+    line-height: 30px;
     width: 96px;
     font-size: 12px;
-    line-height: 24px;
     text-align: center;
-    cursor: default;
+    vertical-align: middle;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
 }
-
-.edui-default .edui-dialog-buttons .edui-button .edui-state-hover .edui-button-body {
-    background: url("../images/icons-all.gif") no-repeat 0 -30px;
+.edui-default .edui-dialog-buttons .edui-okbutton .edui-button-body {
+    background-color: #44b549;
+    border-color: #44b549;
+    color: #fff;
+}
+.edui-default .edui-dialog-buttons .edui-cancelbutton .edui-button-body {
+    background-color: transparent;
+    border-color: #e7e7eb;
+    color: #353535;
+}
+.edui-default .edui-dialog-buttons .edui-okbutton .edui-state-hover .edui-button-body {
+    background-color: #2f9833;
+    border-color: #2f9833;
+}
+.edui-default .edui-dialog-buttons .edui-cancelbutton .edui-state-hover .edui-button-body {
+    background-color: #e7e7eb;
+    border-color: #dadbe0;
 }
 
 .edui-default .edui-dialog iframe {
@@ -173,8 +191,8 @@
 
 /*link-dialog*/
 .edui-default .edui-for-link .edui-dialog-content {
-    width: 420px;
-    height: 200px;
+    width: 520px;
+    height: 278px;
     overflow: hidden;
 }
 /*background-dialog*/

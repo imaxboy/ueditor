@@ -87,7 +87,7 @@ UE.I18N['zh-cn'] = {
     'wordCountTip':"字数统计",
     'wordCountMsg':'当前已输入{#count}个字符, 您还可以输入{#leave}个字符。 ',
     'wordOverFlowMsg':'<span style="color:red;">字数超出最大允许值，服务器可能拒绝保存！</span>',
-    'ok':"确认",
+    'ok':"确定",
     'cancel':"取消",
     'closeDialog':"关闭对话框",
     'tableDrag':"表格拖动必须引入uiUtils.js文件！",
@@ -554,13 +554,14 @@ UE.I18N['zh-cn'] = {
     },
     'link':{
         'static':{
-            'lang_input_text':'文本内容：',
-            'lang_input_url':'链接地址：',
-            'lang_input_title':'标题：',
-            'lang_input_target':'是否在新窗口打开：'
+            'lang_input_text':'文本内容',
+            'lang_input_url':'链接地址',
+            'lang_input_title':'标题',
+            'lang_input_target':'新窗口'
         },
-        'validLink':'只支持选中一个链接时生效',
-        'httpPrompt':'您输入的超链接中不包含http等协议名称，默认将为您添加http://前缀'
+        'validLink':'你已选中了添加链接的文本内容',
+        'httpPrompt':'链接不合法，您输入的超链接中不包含http等协议名称',
+        'emptyLink':'链接地址不能为空'
     },
     'map':{
         'static':{

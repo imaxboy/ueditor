@@ -35,7 +35,6 @@
     gmap: "~/dialogs/gmap/gmap.html",
     insertvideo: "~/dialogs/video/video.html",
     attachment: "~/dialogs/attachment/attachment.html",
-    insertframe: "~/dialogs/insertframe/insertframe.html",
     edittip: "~/dialogs/table/edittip.html",
     edittable: "~/dialogs/table/edittable.html",
     edittd: "~/dialogs/table/edittd.html",
@@ -197,7 +196,6 @@
       "gmap",
       "insertframe",
       "insertvideo",
-      "insertframe",
       "edittip",
       "edittable",
       "edittd"
@@ -236,6 +234,7 @@
                       {
                         className: "edui-okbutton",
                         label: editor.getLang("ok"),
+                        showIcon: false,
                         editor: editor,
                         onclick: function() {
                           dialog.close(true);
@@ -244,6 +243,7 @@
                       {
                         className: "edui-cancelbutton",
                         label: editor.getLang("cancel"),
+                        showIcon: false,
                         editor: editor,
                         onclick: function() {
                           dialog.close(false);
