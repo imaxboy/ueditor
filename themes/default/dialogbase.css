@@ -59,27 +59,28 @@ body {
 
 .tabhead span {
     display: inline-block;
-    padding: 0 5px;
-    height: 30px;
-    border: 1px solid #ccc;
-    background: url("images/dialog-title-bg.png") repeat-x;
+    padding: 0 10px;
+    height: 31px;
+    border: 1px solid #e7e7eb;
     text-align: center;
-    line-height: 30px;
+    line-height: 31px;
     cursor: pointer;
     *margin-right: 5px;
+    background: rgb(249, 249, 249);
 }
 
 .tabhead span.focus {
     height: 31px;
     border-bottom: none;
     background: #fff;
+    color: rgb(45, 183, 245);
 }
 
 .tabbody {
     position: relative;
     top: -1px;
     margin: 0 auto;
-    border: 1px solid #ccc;
+    border: 1px solid #e7e7eb;
 }
 
 /*button*/
