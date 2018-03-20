@@ -6,37 +6,20 @@
 
 UE.plugins["insertcode"] = function() {
   var me = this;
-  me.ready(function() {
-    utils.cssRule(
-      "pre",
-      "pre{margin:.5em 0;padding:.4em .6em;border-radius:8px;background:#f8f8f8;}",
-      me.document
-    );
-  });
   me.setOpt("insertcode", {
-    as3: "ActionScript3",
     bash: "Bash/Shell",
     cpp: "C/C++",
     css: "Css",
     cf: "CodeFunction",
     "c#": "C#",
-    delphi: "Delphi",
-    diff: "Diff",
-    erlang: "Erlang",
-    groovy: "Groovy",
     html: "Html",
     java: "Java",
-    jfx: "JavaFx",
     js: "Javascript",
-    pl: "Perl",
     php: "Php",
     plain: "Plain Text",
-    ps: "PowerShell",
     python: "Python",
     ruby: "Ruby",
-    scala: "Scala",
     sql: "Sql",
-    vb: "Vb",
     xml: "Xml"
   });
 
