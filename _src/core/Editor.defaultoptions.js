@@ -4,7 +4,6 @@ UE.Editor.defaultOptions = function(editor) {
   return {
     isShow: true,
     initialContent: "",
-    initialStyle: "",
     autoClearinitialContent: false,
     iframeCssUrl: _url + "themes/iframe.css",
     textarea: "editorValue",

@@ -16,14 +16,25 @@
         </div>
         <div id="tabBodys" class="tabbody">
             <div id="video" class="panel focus">
-               <table><tr><td><label for="videoUrl" class="url"><var id="lang_video_url"></var></label></td><td><input id="videoUrl" type="text"></td></tr></table>
+               <table>
+                    <tr>
+                        <td><label for="videoUrl" class="url"><var id="lang_video_url"></var></label></td>
+                        <td><input id="videoUrl" type="text" class="form-control" /></td>
+                    </tr>
+                </table>
                <div id="preview"></div>
                <div id="videoInfo">
                    <fieldset>
                        <legend><var id="lang_video_size"></var></legend>
                        <table>
-                           <tr><td><label for="videoWidth"><var id="lang_videoW"></var></label></td><td><input class="txt" id="videoWidth" type="text"/></td></tr>
-                           <tr><td><label for="videoHeight"><var id="lang_videoH"></var></label></td><td><input class="txt" id="videoHeight" type="text"/></td></tr>
+                            <tr>
+                               <td><label for="videoWidth"><var id="lang_videoW"></var></label></td>
+                               <td><input id="videoWidth" type="text" class="txt form-control" /></td>
+                            </tr>
+                           <tr>
+                               <td><label for="videoHeight"><var id="lang_videoH"></var></label></td>
+                               <td><input id="videoHeight" type="text" class="txt form-control" /></td>
+                            </tr>
                        </table>
                    </fieldset>
                    <fieldset>
@@ -59,8 +70,8 @@
                     <fieldset>
                         <legend><var id="lang_upload_size"></var></legend>
                         <table>
-                            <tr><td><label><var id="lang_upload_width"></var></label></td><td><input class="txt" id="upload_width" type="text"/></td></tr>
-                            <tr><td><label><var id="lang_upload_height"></var></label></td><td><input class="txt" id="upload_height" type="text"/></td></tr>
+                            <tr><td><label><var id="lang_upload_width"></var></label></td><td><input class="txt form-control" id="upload_width" type="text" /></td></tr>
+                            <tr><td><label><var id="lang_upload_height"></var></label></td><td><input class="txt form-control" id="upload_height" type="text" /></td></tr>
                         </table>
                     </fieldset>
                     <fieldset>
@@ -74,7 +85,7 @@
 </div>
 
 <!-- jquery -->
-<script type="text/javascript" src="../../third-party/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../../third-party/jquery.min.js"></script>
 
 <!-- webuploader -->
 <script type="text/javascript" src="../../third-party/webuploader/webuploader.min.js"></script>
