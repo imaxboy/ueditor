@@ -71,7 +71,6 @@
         '<div id="##_button_body" class="edui-box edui-button-body" onclick="$$._onButtonClick(event, this);">' +
         '<div class="edui-box edui-icon"><i class="iconfont ' + this.icon +'"></i></div>' +
         "</div>" +
-        '<div class="edui-box edui-splitborder"></div>' +
         '<div class="edui-box edui-arrow" onclick="$$._onArrowClick();"><i class="iconfont icon-arrow-down"></i></div>' +
         "</div></div></div>"
       );
