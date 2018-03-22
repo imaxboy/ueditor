@@ -2,8 +2,8 @@
 .edui-default .edui-toolbar .edui-colorbutton .edui-colorlump {
     position: absolute;
     overflow: hidden;
-    bottom: 1px;
+    bottom: 0;
     left: 1px;
     width: 18px;
-    height: 4px;
+    height: 3px;
 }

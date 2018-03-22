@@ -14,10 +14,6 @@
     border: 1px solid transparent
 }
 
-.edui-default .edui-toolbar .edui-combox-body .edui-splitborder {
-    display: none !important;
-}
-
 .edui-default .edui-toolbar .edui-combox-body .edui-arrow {
     margin-right: 5px;
 }
